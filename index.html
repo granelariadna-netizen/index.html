@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<title>Escape Room Laboral - IPO I</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f7fb;
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    background:white;
+    max-width:750px;
+    margin:auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+button{
+    margin:6px;
+    padding:10px 16px;
+    border:none;
+    border-radius:5px;
+    background:#007BFF;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{background:#0056b3;}
+
+.hidden{display:none;}
+
+input{
+    padding:8px;
+    margin-top:10px;
+}
+
+.pista{
+    display:none;
+    margin-top:10px;
+    padding:10px;
+    background:#f1f1f1;
+    border-radius:5px;
+    color:#333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- INICI -->
+<div id="inici">
+<h1>🧩 Escape Room Laboral</h1>
+<p>Posa a prova els teus coneixements sobre relacions laborals (RA3).</p>
+<button onclick="mostrar('menu')">Començar</button>
+</div>
+
+<!-- MENÚ -->
+<div id="menu" class="hidden">
+
+<h2>📌 Reptes disponibles</h2>
+
+<button onclick="mostrar('r1')">Repte 1</button>
+<button onclick="mostrar('r2')">Repte 2</button>
+<button onclick="mostrar('r3')">Repte 3</button>
+<button onclick="mostrar('r4')">Repte 4</button>
+<button onclick="mostrar('r5')">Repte 5</button>
+<button onclick="mostrar('r6')">Repte 6</button>
+
+<br><br>
+
+<button onclick="mostrar('final')">🔐 Codi final</button>
+<button onclick="mostrar('inici')">⬅ Inici</button>
+
+</div>
+
+<!-- REPTE 1 -->
+<div id="r1" class="hidden">
+<h3>Drets laborals</h3>
+
+<p>Dues persones amb el mateix lloc de treball, responsabilitats i experiència desenvolupen les mateixes funcions dins d’una empresa.</p>
+
+<p>No obstant això, una d’elles rep un salari inferior sense que existeixi cap criteri objectiu que ho justifiqui.</p>
+
+<p><b>Quin principi laboral s’està vulnerant en aquest cas?</b></p>
+
+<input id="a1">
+
+<button onclick="check1()">Comprovar</button>
+<button onclick="toggle('p1')">💡 Pista</button>
+<button onclick="mostrar('menu')">⬅ Tornar</button>
+
+<div id="p1" class="pista">
+Pensa en un principi bàsic que garanteix el mateix tracte en condicions equivalents de treball.
+</div>
+
+<p id="res1"></p>
+</div>
+
+<!-- REPTE 2 -->
+<div id="r2" class="hidden">
+<h3>Contractes</h3>
+
+<p>Una empresa necessita reforç de personal únicament durant la temporada d’estiu per augment de demanda.</p>
+
+<p><b>Quin tipus de contracte laboral és el més adequat per aquesta situació?</b></p>
+
+<input id="a2">
+
+<button onclick="check2()">Comprovar</button>
+<button onclick="toggle('p2')">💡 Pista</button>
+<button onclick="mostrar('menu')">⬅ Tornar</button>
+
+<div id="p2" class="pista">
+És un contracte vinculat a una necessitat puntual i no permanent.
+</div>
+
+<p id="res2"></p>
+</div>
+
+<!-- REPTE 3 -->
+<div id="r3" class="hidden">
+<h3>Nòmina</h3>
+
+<p>En una nòmina, hi ha un concepte que representa la quantitat fixa pactada entre empresa i treballador abans d’afegir complements o aplicar deduccions.</p>
+
+<p><b>Com s’anomena aquest concepte?</b></p>
+
+<input id="a3">
+
+<button onclick="check3()">Comprovar</button>
+<button onclick="toggle('p3')">💡 Pista</button>
+<button onclick="mostrar('menu')">⬅ Tornar</button>
+
+<div id="p3" class="pista">
+És la base sobre la qual es calcula la resta de la retribució.
+</div>
+
+<p id="res3"></p>
+</div>
+
+<!-- REPTE 4 -->
+<div id="r4" class="hidden">
+<h3>Protecció social i cobertura pública</h3>
+
+<p>Un treballador pot accedir a prestacions econòmiques en situacions com malaltia, jubilació o desocupació.</p>
+
+<p>El sistema públic que garanteix ingressos i cobertura davant situacions de necessitat té un paper clau en la protecció dels ciutadans.</p>
+
+<p><b>Quin sistema públic garanteix aquesta protecció?</b></p>
+
+<input id="a4">
+
+<button onclick="check4()">Comprovar</button>
+<button onclick="toggle('p4')">💡 Pista</button>
+<button onclick="mostrar('menu')">⬅ Tornar</button>
+
+<div id="p4" class="pista">
+És el sistema estatal que protegeix els ciutadans davant situacions de necessitat com malaltia, jubilació o atur.
+</div>
+
+<p id="res4"></p>
+</div>
+
+<!-- REPTE 5 -->
+<div id="r5" class="hidden">
+<h3>Conflictes laborals</h3>
+
+<p>Una empresa finalitza la relació laboral amb un treballador sense justificar adequadament la causa segons la normativa vigent.</p>
+
+<p><b>Com es classifica aquest tipus d’acomiadament?</b></p>
+
+<input id="a5">
+
+<button onclick="check5()">Comprovar</button>
+<button onclick="toggle('p5')">💡 Pista</button>
+<button onclick="mostrar('menu')">⬅ Tornar</button>
+
+<div id="p5" class="pista">
+No compleix els requisits legals de justificació establerts.
+</div>
+
+<p id="res5"></p>
+</div>
+
+<!-- REPTE 6 -->
+<div id="r6" class="hidden">
+<h3>SEPE i SOC</h3>
+
+<p>Una persona ha perdut la seva feina i ha de tramitar la prestació per desocupació a través d’un organisme públic estatal.</p>
+
+<p><b>Quin organisme gestiona aquestes prestacions?</b></p>
+
+<input id="a6">
+
+<button onclick="check6()">Comprovar</button>
+<button onclick="toggle('p6')">💡 Pista</button>
+<button onclick="mostrar('menu')">⬅ Tornar</button>
+
+<div id="p6" class="pista">
+Servei públic estatal d’ocupació.
+</div>
+
+<p id="res6"></p>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="hidden">
+<h2>🔐 Codi final</h2>
+<p>Introdueix el codi de 6 dígits:</p>
+
+<input id="codeFinal">
+<button onclick="checkFinal()">Validar</button>
+
+<p id="resFinal"></p>
+</div>
+
+<!-- RECOMPENSA -->
+<div id="recompensa" class="hidden">
+<h1>🎉 HAS ESCAPAT!</h1>
+<p>Has demostrat competència en relacions laborals.</p>
+<p>🏆 Recompensa: Agent de protecció dels drets laborals</p>
+</div>
+
+</div>
+
+<script>
+
+function mostrar(p){
+    document.querySelectorAll('.container > div').forEach(d=>d.classList.add('hidden'));
+    document.getElementById(p).classList.remove('hidden');
+}
+
+function toggle(id){
+    let e=document.getElementById(id);
+    e.style.display = (e.style.display==="block")?"none":"block";
+}
+
+/* CODIS */
+let c1=0,c2=0,c3=0,c4=0,c5=0,c6=0;
+
+function check1(){
+    let r=document.getElementById('a1').value.toLowerCase();
+    c1=(r.includes("igualtat")||r.includes("no discriminació"))?1:0;
+    document.getElementById('res1').innerText=c1?"Correcte ✅ Codi: 3":"Incorrecte ❌";
+}
+
+function check2(){
+    let r=document.getElementById('a2').value.toLowerCase();
+    c2=r.includes("temporal")?1:0;
+    document.getElementById('res2').innerText=c2?"Correcte ✅ Codi: 5":"Incorrecte ❌";
+}
+
+function check3(){
+    let r=document.getElementById('a3').value.toLowerCase();
+    c3=r.includes("salari base")?1:0;
+    document.getElementById('res3').innerText=c3?"Correcte ✅ Codi: 7":"Incorrecte ❌";
+}
+
+function check4(){
+    let r=document.getElementById('a4').value.toLowerCase();
+    c4=r.includes("seguretat social")?1:0;
+    document.getElementById('res4').innerText=c4?"Correcte ✅ Codi: 2":"Incorrecte ❌";
+}
+
+function check5(){
+    let r=document.getElementById('a5').value.toLowerCase();
+    c5=r.includes("improcedent")?1:0;
+    document.getElementById('res5').innerText=c5?"Correcte ✅ Codi: 9":"Incorrecte ❌";
+}
+
+function check6(){
+    let r=document.getElementById('a6').value.toLowerCase();
+    c6=r.includes("sepe")?1:0;
+    document.getElementById('res6').innerText=c6?"Correcte ✅ Codi: 4":"Incorrecte ❌";
+}
+
+function checkFinal(){
+    let code=document.getElementById('codeFinal').value;
+    if(code==="357294"){
+        mostrar('recompensa');
+    }else{
+        document.getElementById('resFinal').innerText="❌ Codi incorrecte";
+    }
+}
+
+</script>
+
+</body>
+</html>
